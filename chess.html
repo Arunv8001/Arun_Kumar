@@ -29,7 +29,7 @@
                     const selectedEleColor = this.style.backgroundColor;
                     let gValue = parseInt(this.id);
                     for (let j = gValue; j < 63; j++) {
-                        if (gValue < 63) {
+                        if (gValue <= 63) {
                             const color = document.getElementById(gValue).style.backgroundColor;
                             if (selectedEleColor === color) {
                                 document.getElementById(gValue).style.backgroundColor = "red";
@@ -49,7 +49,7 @@
                     }
                     let mValue = parseInt(this.id);
                     for (let j = mValue; j < 63; j++) {
-                        if (mValue < 63) {
+                        if (mValue <= 63) {
                             const color = document.getElementById(mValue).style.backgroundColor;
                             if (selectedEleColor === color) {
                                 document.getElementById(mValue).style.backgroundColor = "red";
@@ -59,7 +59,7 @@
                     }
                     let nValue = parseInt(this.id);
                     for (let j = nValue; j > 0; j--) {
-                        if (nValue > 0) {
+                        if (nValue >= 0) {
                             const color = document.getElementById(nValue).style.backgroundColor;
                             if (selectedEleColor === color) {
                                 document.getElementById(nValue).style.backgroundColor = "red";
