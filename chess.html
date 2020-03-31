@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #mainChessBoard {
+            width: 320px;
+            height: 320px;
+            border: 1px solid black;
+        }
+
+        div {
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            for (let i = 0; i < 64; i++) {
+                const mainBoard = document.getElementById("mainChessBoard");
+                const eachDiv = mainBoard.appendChild(document.createElement("div"));
+                eachDiv.setAttribute("id", i);
+                eachDiv.style.backgroundColor = parseInt((i / 8) + i) % 2 == 0 ? 'black' : 'white';
+                eachDiv.onclick = function () {
+                    for (let i = 0; i < 64; i++) {
+                        document.getElementById(i).style.backgroundColor = parseInt((i / 8) + i) % 2 == 0 ? 'black' : 'white';
+                    }
+                    const selectedEleColor = this.style.backgroundColor;
+                    let gValue = parseInt(this.id);
+                    for (let j = gValue; j < 63; j++) {
+                        if (gValue < 63) {
+                            const color = document.getElementById(gValue).style.backgroundColor;
+                            if (selectedEleColor === color) {
+                                document.getElementById(gValue).style.backgroundColor = "red";
+                            }
+                        }
+                        gValue = gValue + 9;
+                    }
+                    let lValue = parseInt(this.id);
+                    for (let j = lValue; j > 0; j--) {
+                        if (lValue >= 0) {
+                            const color = document.getElementById(lValue).style.backgroundColor;
+                            if (selectedEleColor === color) {
+                                document.getElementById(lValue).style.backgroundColor = "red";
+                            }
+                        }
+                        lValue = lValue - 9;
+                    }
+                    let mValue = parseInt(this.id);
+                    for (let j = mValue; j < 63; j++) {
+                        if (mValue < 63) {
+                            const color = document.getElementById(mValue).style.backgroundColor;
+                            if (selectedEleColor === color) {
+                                document.getElementById(mValue).style.backgroundColor = "red";
+                            }
+                        }
+                        mValue = mValue + 7;
+                    }
+                    let nValue = parseInt(this.id);
+                    for (let j = nValue; j > 0; j--) {
+                        if (nValue > 0) {
+                            const color = document.getElementById(nValue).style.backgroundColor;
+                            if (selectedEleColor === color) {
+                                document.getElementById(nValue).style.backgroundColor = "red";
+                            }
+                        }
+                        nValue = nValue - 7;
+                    }
+                }
+            }
+        }, 10);
+
+    </script>
+</head>
+
+<body>
+
+    <div id="mainChessBoard">
+    </div>
+
+</body>
+
+</html>
